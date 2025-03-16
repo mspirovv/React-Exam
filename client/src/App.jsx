@@ -8,6 +8,7 @@ import Footer from './Components/Footer/Footer';
 import Search from './Components/Search/Search';
 import Login from './Login/Login';
 import NotFound from './Components/NotFound/NotFound';
+import Home from './Components/Home';
 
 function App() {
 
@@ -21,7 +22,7 @@ function App() {
       <Header/>
   
       <Routes>
-    
+        <Route index element={<Home/>} />
         <Route path='/catalog' element={<Catalog />} />
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
