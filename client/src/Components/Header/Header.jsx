@@ -54,14 +54,15 @@ export default function Header() {
                   <Link to="/register">register</Link>
                 </li>
                 <li className="scroll">
-                  <a href="#featured-cars">featured cars</a>
+                <Link to="/login">login</Link>
                 </li>
                 <li className="scroll">
                  <Link to="/catalog">new cars</Link>
                 </li>
                 <li className="scroll">
-                  <a href="#brand">brands</a>
+                  <Link to="/search">search</Link>
                 </li>
+            
                 <li className="scroll">
                   <a href="#contact">contact</a>
                 </li>

@@ -1,0 +1,20 @@
+
+.notfound-container {
+    text-align: center;
+    padding: 50px;
+    font-size: 20px;
+  }
+  
+  .notfound-container h1 {
+    font-size: 50px;
+    color: #ff6347;
+  }
+  
+  .notfound-container a {
+    font-size: 18px;
+    color: #4e4ffa;
+    text-decoration: none;
+    margin-top: 20px;
+    display: inline-block;
+  }
+  

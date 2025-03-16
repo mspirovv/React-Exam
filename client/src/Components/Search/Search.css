@@ -1,0 +1,98 @@
+
+  /* Контейнер за търсене - ще използваме 100vh за височина */
+  .search-container {
+    margin-top: -250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Сега ще заема целия екран */
+    padding: 20px;
+  }
+  
+  /* Контейнер с формата за търсене */
+  .model-search-content {
+    padding: 40px 30px; /* Увеличаваме padding, за да има повече пространство */
+    background: #fff;
+    box-shadow: 0 10px 40px 0 rgba(38, 40, 64, 0.2);
+    border-radius: 3px;
+    
+    /* Flexbox за центриране */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    /* Ограничаваме максималната ширина */
+    max-width: 5000px;  /* Можеш да промениш тази стойност според твоите предпочитания */
+    width: 100%;
+    margin: 0 auto;
+    
+    /* Добавяме min-height, за да предотвратим малки височини */
+    min-height: 500px; /* Може да промениш според нуждите */
+    width: 1600px;
+  }
+  
+  /* Допълнителни стилове за останалите елементи */
+  .single-model-search {
+    margin-bottom: 20px;
+  }
+  
+  .single-model-search h2 {
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+  }
+  
+  .model-select-icon input {
+    outline: 0 !important;
+    box-shadow: none;
+    border: 1px solid #f8f8f8;
+    background: #f8f8f8;
+    height: 50px;
+    padding-left: 20px;
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .model-select-icon input:focus {
+    border-color: #007bff;
+    background-color: #f0f8ff;
+  }
+  
+  .welcome-btn.model-search-btn {
+    width: 100%;
+    padding: 15px 0;
+    margin-top: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    max-width: 200px;
+  }
+  
+  .welcome-btn.model-search-btn:hover {
+    background-color: #0056b3;
+  }
+  h2 {
+    font-size: 16px;  /* Размер на шрифта */
+    font-weight: 600;  /* Дебелина на шрифта */
+    color: #333;  /* Цвят на текста */
+    margin-bottom: 8px;  /* Отстояние отдолу */
+    display: block;  /* Превръщаме label в блоков елемент */
+    text-transform: capitalize;  /* Първата буква на всяка дума да е главна */
+    padding: 5px;  /* Падинг около текста */
+    transition: color 0.3s ease;  /* Плавен преход на цвета */
+    text-align: center;
+  }
+
+  input {
+    text-align: center;
+  }
+  
+  /* За hover ефект */
+  h2:hover {
+    color: #007bff;  /* Променяме цвета на текста при задържане с мишката */
+  }
