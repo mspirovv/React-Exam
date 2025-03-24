@@ -6,7 +6,7 @@ import Header from './Components/Header/Header';
 import Register from './Components/Register/Register';
 import Footer from './Components/Footer/Footer';
 import Search from './Components/Search/Search';
-import Login from './Login/Login';
+import Login from './Components/Login/Login';
 import NotFound from './Components/NotFound/NotFound';
 import Home from './Components/Home';
 
