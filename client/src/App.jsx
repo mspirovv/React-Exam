@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router'
-import { useState } from 'react'
+
+import UserProvider from './providers/UserProvider';
 
 import Catalog from './Components/Catalog';
 import Header from './Components/Header/Header';
@@ -9,13 +10,14 @@ import Search from './Components/Search/Search';
 import Login from './Components/Login/Login';
 import NotFound from './Components/NotFound/NotFound';
 import Home from './Components/Home';
+import CreateCar from './Components/CreateCar/CreateCar';
 
 function App() {
 
 
   return (
     <>
-
+       <UserProvider>
 
       <title>CarVilla</title>
      
@@ -26,12 +28,14 @@ function App() {
         <Route path='/catalog' element={<Catalog />} />
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/add-car' element={<CreateCar/>} />
         <Route path='/search' element={<Search/>} />
+        
 
         <Route path='*' element={<NotFound/>} />
       </Routes>
       <Footer/>
-
+      </UserProvider>
      
     </>
   );
