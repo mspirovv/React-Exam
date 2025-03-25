@@ -1,5 +1,5 @@
 
-import { useRegister } from '../../services/ApiService';
+import { useRegister } from '../../services/apiService';
 // import AuthContext from "../../contexts/authContext";
 import './Register.css'
 import { useForm } from "react-hook-form";
