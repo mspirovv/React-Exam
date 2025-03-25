@@ -1,9 +1,13 @@
+import useAuth from "../../hooks/useAuth";
 import { Link } from "react-router";
 import './Header.css';
 import Home from "../Home";
 
 
 export default function Header() {
+  const { email, isAuthenticated } = useAuth();
+
+
    return (
        <>
               <div className="welcome-hero">
@@ -64,9 +68,13 @@ export default function Header() {
                 </li>
             
                 <li className="scroll">
-                  <a href="#contact">contact</a>
+                  <a href="/add-car">add car</a>
                 </li>
+                 <li className="nav-email">Welcome, {email} !
+                 </li>
+               
               </ul>
+          
               {/*/.nav */}
             </div>
             {/* /.navbar-collapse */}
