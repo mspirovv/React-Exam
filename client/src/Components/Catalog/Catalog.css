@@ -1,0 +1,25 @@
+.featured-cars-content {
+margin-top: -90px;
+}
+
+.details-btn {
+    display: flex;
+    justify-content: center; 
+    margin-top: -20px;
+    margin-bottom: 20px;
+}
+
+
+
+.featured-model-info p,
+.featured-cars-txt h3 {
+    text-align: center;
+}
+
+
+.featured-cars-img img {
+    width: 100%; /* Разпъва снимката в контейнера */
+    height: 180px; /* Фиксирана височина */
+    object-fit: cover; /* Гарантира, че ще се запази пропорцията */
+    border-radius: 8px; /* За по-добра визия */
+}

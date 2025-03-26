@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router'
 
 import UserProvider from './providers/UserProvider';
 
-import Catalog from './Components/Catalog';
+
 import Header from './Components/Header/Header';
 import Register from './Components/Register/Register';
 import Footer from './Components/Footer/Footer';
@@ -11,6 +11,8 @@ import Login from './Components/Login/Login';
 import NotFound from './Components/NotFound/NotFound';
 import Home from './Components/Home';
 import CreateCar from './Components/CreateCar/CreateCar';
+import Catalog from './Components/Catalog/Catalog';
+import CarDetails from './Components/car-details/CarDetails';
 
 function App() {
 
@@ -29,6 +31,7 @@ function App() {
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path='/add-car' element={<CreateCar/>} />
+        <Route path='/cars/:carId/details' element={<CarDetails/>} />
         <Route path='/search' element={<Search/>} />
         
 

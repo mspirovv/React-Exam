@@ -82,6 +82,16 @@ export default function CreateCar() {
             ></textarea>
           </div>
 
+          <div className="input-group">
+            <label htmlFor="price">Price:</label>
+            <input
+              type="number"
+              id="price"
+              name="price"
+              className="input-field"
+            />
+          </div>
+
           <button type="submit" className="submit-btn">Create Car</button>
         </form>
       </div>
