@@ -51,6 +51,16 @@ export const useEditCar = () => {
     return {
         edit,
     }
-
 }
 
+export const useDeleteCar = () => {
+    const { request } = useAuth();
+    
+    const deleteCar = (carId) => 
+        request.delete(`${baseUrl}/${carId}`);
+
+    return {
+        deleteCar,
+    }
+
+}
