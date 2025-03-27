@@ -23,6 +23,7 @@ export const useCar = (carId) => {
         .then(setCar)
     }, [carId]);
 
+   console.log(`Hook: ${car.brand}`)
     return {
         car,
     }
@@ -42,10 +43,10 @@ export const useCreateCar = () => {
 }
 
 export const useEditCar = () => {
-    const request = useAuth();
+    const { request } = useAuth();
 
     const edit = (carId,carData) =>
-    request.put(`${baseUrl}${carId}` , {...carData, _id: car._id });
+    request.put(`${baseUrl}/${carId}` , {...carData, _id: carId });
 
     return {
         edit,

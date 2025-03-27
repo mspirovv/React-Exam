@@ -13,12 +13,14 @@ import Home from './Components/Home';
 import CreateCar from './Components/CreateCar/CreateCar';
 import Catalog from './Components/Catalog/Catalog';
 import CarDetails from './Components/car-details/CarDetails';
+import CarEdit from './Components/car-edit/CarEdit';
 
 function App() {
 
 
   return (
     <>
+       
        <UserProvider>
 
       <title>CarVilla</title>
@@ -32,6 +34,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/add-car' element={<CreateCar/>} />
         <Route path='/cars/:carId/details' element={<CarDetails/>} />
+        <Route path='/cars/:carId/edit' element={<CarEdit/>} />
         <Route path='/search' element={<Search/>} />
         
 

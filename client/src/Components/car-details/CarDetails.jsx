@@ -1,83 +1,77 @@
-import { useNavigate, useParams } from "react-router";
+import { Link, useNavigate, useParams } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import { useCar } from "../../services/carService";
 
 import './CarDetails.css'
 
 export default function CarDetails() {
-    const navigate = useNavigate();
-    const { email, userId } = useAuth();
-    const { carId } = useParams();
-    const { car } = useCar(carId);
+  const navigate = useNavigate();
+  const { email, userId } = useAuth();
+  const { carId } = useParams();
+  const { car } = useCar(carId);
 
-    console.log(car.brand)
+  console.log(carId)
 
- 
-
-
-
-   return (
+  return (
     <>
-    <section id="new-cars" className="new-cars">
-    <div className="container">
-      {/* <div className="section-header">
-       
-        <h2>Car details</h2>
-      </div> */}
-      {/*/.section-header */}
-      <div className="new-cars-content">
-        <div className="owl-carousel owl-theme" id="new-cars-carousel">
-          <div className="new-cars-item">
-            <div className="single-new-cars-item">
-              <div className="row">
-                <div className="col-md-7 col-sm-12">
-                  <div className="new-cars-img">
-                    <img
-                      src={car.imageUrl}
-                      alt="img"
-                    />
+      <section id="new-cars" className="new-cars">
+        <div className="container">
+     
+          <div className="new-cars-content">
+            <div className="owl-carousel owl-theme" id="new-cars-carousel">
+              <div className="new-cars-item">
+                <div className="single-new-cars-item">
+                  <div className="row">
+                    <div className="col-md-7 col-sm-12">
+                      <div className="new-cars-img">
+                        <img
+                          src={car.imageUrl}
+                          alt="img"
+                        />
+                      </div>
+                      {/*/.new-cars-img*/}
+                    </div>
+                    <div className="col-md-5 col-sm-12">
+                      <div className="new-cars-txt">
+                        <h2>
+                          <a href="#">
+                            {car.brand} <span> {car.model} </span>
+                          </a>
+                        </h2>
+                        Description:
+                        <p>
+                          {car.description}
+                        </p>
+                        <p className="new-cars-para2">
+                          <p>Year:  {car.year}</p>
+                          <p>Transmission: {car.transmission}</p>
+                          <p>Price: {car.price}$</p>
+                        </p>
+                        <div className="button-group">
+
+                          <Link to={`/cars/${carId}/edit`} className="edit-btn">
+                            Edit
+                          </Link>
+                          <button className="delete-btn" onClick={() => console.log("Delete clicked")}>
+                            Delete
+                          </button>
+                        </div>
+
+                      </div>
+                      {/*/.new-cars-txt*/}
+                    </div>
+                    {/*/.col*/}
                   </div>
-                  {/*/.new-cars-img*/}
+                  {/*/.row*/}
                 </div>
-                <div className="col-md-5 col-sm-12">
-                  <div className="new-cars-txt">
-                    <h2>
-                      <a href="#">
-                        { car.brand } <span> {car.model  } </span>
-                      </a>
-                    </h2>
-                    Description:
-                    <p> 
-                    { car.description }
-                    </p>
-                    <p className="new-cars-para2">
-                     <p>Year:  {car.year}</p>
-                     <p>Transmission: {car.transmission}</p>
-                     <p>Price: {car.price}$</p>
-                    </p>
-                    <div className="button-group">
-  <button className="edit-btn" onClick={() => console.log("Edit clicked")}>
-    Edit
-  </button>
-  <button className="delete-btn" onClick={() => console.log("Delete clicked")}>
-    Delete
-  </button>
-</div>
-  
-                  </div>
-                  {/*/.new-cars-txt*/}
-                </div>
-                {/*/.col*/}
+                {/*/.single-new-cars-item*/}
               </div>
-              {/*/.row*/}
+              {/*/.new-cars-item*/}
             </div>
-            {/*/.single-new-cars-item*/}
           </div>
-          {/*/.new-cars-item*/}
-          </div>
-      </div>
-      </div>
-   </section>
-  </>
-   );
+        </div>
+      </section>
+    </>
+  );
 }
+
