@@ -7,6 +7,8 @@ import Home from "../Home";
 export default function Header() {
   const { email, isAuthenticated } = useAuth();
 
+  console.log(`Is Authenticated? ${isAuthenticated}`)
+
 
    return (
        <>
@@ -34,14 +36,12 @@ export default function Header() {
               >
                 <i className="fa fa-bars" />
               </button>
-              <a className="navbar-brand" href="index.html">
-                carvilla
+              <Link className="navbar-brand" to='/'>
+              carvilla
                 <span />
-              </a>
+              </Link>
             </div>
-            {/*/.navbar-header*/}
-            {/* End Header Navigation */}
-            {/* Collect the nav links, forms, and other content for toggling */}
+           
             <div
               className="collapse navbar-collapse menu-ui-design"
               id="navbar-menu"
@@ -55,23 +55,38 @@ export default function Header() {
                  <Link to="/">home</Link>
                 </li>
                 <li className="scroll">
-                  <Link to="/register">register</Link>
-                </li>
-                <li className="scroll">
-                <Link to="/login">login</Link>
-                </li>
-                <li className="scroll">
                  <Link to="/catalog">new cars</Link>
                 </li>
                 <li className="scroll">
                   <Link to="/search">search</Link>
                 </li>
-            
-                <li className="scroll">
-                  <a href="/add-car">add car</a>
-                </li>
-                 <li className="nav-email">Welcome, {email} !
+                
+                {isAuthenticated ? (
+                  <>
+                   <li className="scroll">
+                   <a href="/add-car">add car</a>
                  </li>
+                 <li className="scroll">
+                  <Link to="/logout">logout</Link>
+                </li>
+                  </>
+                ) : (
+                  <>
+                  <li className="scroll">
+                  <Link to="/register">register</Link>
+                </li>
+                <li className="scroll">
+                <Link to="/login">login</Link>
+                </li>
+                </>
+                )
+                }
+             
+                {email && 
+
+                 <li className="nav-email">Welcome, {email} !
+                  </li>}
+             
                
               </ul>
           
@@ -96,4 +111,6 @@ export default function Header() {
     
 </>
    );
-}
+}<li className="scroll">
+                  <Link to="/logout">logout</Link>
+                </li>

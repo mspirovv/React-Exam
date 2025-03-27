@@ -30,7 +30,7 @@ export default function useAuth() {
         ...authData,
         accessToken,    
         userId: authData._id,
-        isAuthenticated: !!authData.accessToken,
+        isAuthenticated: !!accessToken,
         request: requestObject
     }
 };

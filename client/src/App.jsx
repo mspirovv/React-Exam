@@ -14,6 +14,7 @@ import CreateCar from './Components/CreateCar/CreateCar';
 import Catalog from './Components/Catalog/Catalog';
 import CarDetails from './Components/car-details/CarDetails';
 import CarEdit from './Components/car-edit/CarEdit';
+import Logout from './Components/logout/Logout';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
         <Route path='/catalog' element={<Catalog />} />
         <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/logout' element={<Logout />} />
         <Route path='/add-car' element={<CreateCar/>} />
         <Route path='/cars/:carId/details' element={<CarDetails/>} />
         <Route path='/cars/:carId/edit' element={<CarEdit/>} />

@@ -10,12 +10,12 @@ export default function UserProvider({
         setAuthData(resultData);
     };
 
-    const useLogoutHandler = () => {
+    const userLogoutHandler = () => {
         setAuthData({});
     };
 
     return (
-        <UserContext.Provider value = {{...authData, userLoginHandler, useLogoutHandler}}>
+        <UserContext.Provider value = {{...authData, userLoginHandler, userLogoutHandler}}>
             {children}
         </UserContext.Provider>
     );

@@ -1,5 +1,5 @@
 import './Footer.css'
-
+import { Link } from 'react-router';
 export default function Footer() {
    return (
        <>
@@ -16,7 +16,8 @@ export default function Footer() {
           <div className="col-md-3 col-sm-6">
             <div className="single-footer-widget">
               <div className="footer-logo">
-                <a href="index.html">carvilla</a>
+               
+              <Link to='/'>carvilla</Link>
               </div>
               <p>
                 Ased do eiusm tempor incidi ut labore et dolore magnaian aliqua.
