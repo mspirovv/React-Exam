@@ -1,6 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router";
 import useAuth from "../../hooks/useAuth";
-import { useCar } from "../../services/carService";
+import { useCar, useDeleteCar } from "../../services/carService";
 
 import './CarDetails.css'
 
@@ -9,8 +9,21 @@ export default function CarDetails() {
   const { email, userId } = useAuth();
   const { carId } = useParams();
   const { car } = useCar(carId);
+  const { deleteCar } = useDeleteCar();
 
-  console.log(carId)
+  const carDeleteHandler = async () => {
+    const areYouSure = confirm(`Are you sure you want to delete ${car.brand} ${car.model} ?`);
+
+    if (!areYouSure) {
+      return;
+    }
+
+    await deleteCar(carId);
+
+    navigate('/catalog');
+  }
+
+
 
   return (
     <>
@@ -52,7 +65,7 @@ export default function CarDetails() {
                           <Link to={`/cars/${carId}/edit`} className="edit-btn">
                             Edit
                           </Link>
-                          <button className="delete-btn" onClick={() => console.log("Delete clicked")}>
+                          <button className="delete-btn" onClick={carDeleteHandler}>
                             Delete
                           </button>
                         </div>
