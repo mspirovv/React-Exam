@@ -1,33 +1,37 @@
+import { useState } from "react";
 import { useCars } from "../../services/carService";
 import CarCatalogItem from "./car-catalog-item/CarCatalogItem";
 
 import './Catalog.css'
 
 export default function Catalog() {
-   
+  const pageSize = 8;
+  const [currentPage,setCurrentPage] = useState(1);
   const { cars } = useCars();
+
+  const totalCars = cars.length;
+  const totalPages = Math.ceil(totalCars/pageSize);
+  const displayedCars = cars.slice((currentPage-1) * pageSize,currentPage * pageSize);
    return (
        <>
-       {/* <section id="featured-cars" className="featured-cars"> */}
-    {/* <div className="container">
-      <div className="section-header">
-        <p>
-          checkout <span>the</span> featured cars
-        </p> */}
-        {/* <h2>featured cars</h2> */}
-      {/* </div> */}
-      {/*/.section-header*/}
       <div className="featured-cars-content">
         <div className="row">
          
-         {cars.length > 0 
-         ? cars.map(car => <CarCatalogItem key={car._id}{...car} />)
+         {displayedCars.length > 0 
+         ? displayedCars.map(car => <CarCatalogItem key={car._id}{...car} />)
          : <h3>No added cars yet!</h3>}
         </div>
+
+        <div className="pagination">
+          <button disabled={currentPage === 1} onClick={() => setCurrentPage(currentPage-1)}>
+            Previous
+          </button>
+          <span>Page {currentPage} of {totalPages}</span>
+          <button disabled={currentPage == totalPages} onClick={() => setCurrentPage(currentPage +1)}>
+            Next
+          </button>
+        </div>
       </div>
-    {/* </div> */}
-    {/*/.container*/}
-  {/* </section> */}
        </>
    );
 }
