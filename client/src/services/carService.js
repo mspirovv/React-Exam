@@ -64,3 +64,46 @@ export const useDeleteCar = () => {
     }
 
 }
+export const searchCars = async (brand, price) => {
+    let query = {};
+
+    console.log(`query: ${JSON.stringify(query)}`);
+
+    // Проверяваме дали има стойност за brand
+    if (brand) {
+        query.brand = brand; // Използваме точно съвпадение за brand
+    }
+
+    // Ако има стойност за price, използваме оператор $lte
+    if (price) {
+        query.price = { $lte: Number(price) }; // Използваме оператор за <= (по-малко или равно)
+    }
+
+    // Генерираме whereClause на базата на наличието на brand
+    let whereClause = '';
+    if (brand) {
+        whereClause = `where=brand%20LIKE%20%22${encodeURIComponent(brand)}%22`;
+    }
+
+    if (price) {
+        if (whereClause) {
+            whereClause += `%20AND%20price%20%3C%3D%20${price}`;
+        } else {
+            whereClause = `where=price%20%3C%3D%20${price}`;
+        }
+    }
+
+    // Съставяме финалния URL
+    const url = `http://localhost:3030/data/cars?${whereClause}`;
+    console.log("Generated URL:", url); // Проверяваме дали URL е правилен
+
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        console.log("Server Response:", data); // Логваме отговора от сървъра
+        return data;
+    } catch (error) {
+        console.error("Search request failed:", error);
+        return [];
+    }
+};
