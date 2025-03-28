@@ -10,6 +10,8 @@ export default function CarDetails() {
   const { carId } = useParams();
   const { car } = useCar(carId);
   const { deleteCar } = useDeleteCar();
+  
+  const isOwner = car._ownerId === userId;
 
   const carDeleteHandler = async () => {
     const areYouSure = confirm(`Are you sure you want to delete ${car.brand} ${car.model} ?`);
@@ -60,8 +62,8 @@ export default function CarDetails() {
                           <p>Transmission: {car.transmission}</p>
                           <p>Price: {car.price}$</p>
                         </p>
+                        {isOwner &&
                         <div className="button-group">
-
                           <Link to={`/cars/${carId}/edit`} className="edit-btn">
                             Edit
                           </Link>
@@ -69,7 +71,7 @@ export default function CarDetails() {
                             Delete
                           </button>
                         </div>
-
+                      }
                       </div>
                       {/*/.new-cars-txt*/}
                     </div>
