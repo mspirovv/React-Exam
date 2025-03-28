@@ -5,6 +5,7 @@ import './Register.css'
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { Link } from 'react-router';
 
 export default function Register() {
 
@@ -61,6 +62,10 @@ const schema = yup.object().shape({
           <button type="submit" className="submit-btn">
             Register
           </button>
+          <p class="text-center"> 
+           <p> Already have an account? </p>
+            <Link to='/login'>Login here!</Link>
+          </p>
         </form>
       </div>
     </div>

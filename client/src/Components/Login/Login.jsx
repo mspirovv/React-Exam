@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useContext } from "react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { useActionState } from "react";
 
 export default function Login() {
@@ -52,7 +52,12 @@ const [_, loginAction,isPending] = useActionState(loginHandler, { email: '', pas
           </div>
 
           <button type="submit" className="submit-btn">Login</button>
+          <p class="text-center"> 
+           <p> Don't have an account? </p>
+            <Link to='/register'>Register here!</Link>
+          </p>
         </form>
+
       </div>
     </div>
   );

@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
+  min-height: 70vh;
   background-color: #f4f7fb;
  
 }
@@ -14,8 +14,8 @@
   padding: 40px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  width: 100%;
-  max-width: 400px;
+  width: 90%;
+  max-width: 350px;
 }
 
 /* Title of the form */
@@ -75,4 +75,8 @@
 
 .submit-btn:hover {
   background-color: #3a3fd4;
+}
+
+.text-center {
+  margin-bottom: -20px;
 }
