@@ -16,23 +16,23 @@ export default function Login() {
   const { login } = useLogin();
   const { userLoginHandler } = useContext(UserContext);
 
-const schema = yup.object().shape({
-  email: yup.string().email("Invalid email").required("Email is required"),
-  password: yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
-});
+  const schema = yup.object().shape({
+    email: yup.string().email("Invalid email").required("Email is required"),
+    password: yup.string().min(6, "Password must be at least 6 characters").required("Password is required"),
+  });
 
-const loginHandler = async(_, formData) => {
-  const { email, password} = Object.fromEntries(formData);
+  const loginHandler = async (_, formData) => {
+    const { email, password } = Object.fromEntries(formData);
 
-  const authData = await login(email,password);
+    const authData = await login(email, password);
 
-  userLoginHandler(authData);
-  navigate(-1)
+    userLoginHandler(authData);
+    navigate(-1)
 
-  console.log('login succesful')
-};
+    console.log('login succesful')
+  };
 
-const [_, loginAction,isPending] = useActionState(loginHandler, { email: '', password: '  '});
+  const [_, loginAction, isPending] = useActionState(loginHandler, { email: '', password: '  ' });
 
   return (
     <div className="login-container">
@@ -52,10 +52,11 @@ const [_, loginAction,isPending] = useActionState(loginHandler, { email: '', pas
           </div>
 
           <button type="submit" className="submit-btn">Login</button>
-          <p class="text-center"> 
-           <p> Don't have an account? </p>
+          <div className="text-center">
+            <p>Don't have an account?</p>
             <Link to='/register'>Register here!</Link>
-          </p>
+          </div>
+
         </form>
 
       </div>
