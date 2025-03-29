@@ -1,9 +1,6 @@
 .new-cars {
     margin-top: -200px;
 }
-
-
-
 .edit-btn {
     display: block;
     width: 45%; 
@@ -49,3 +46,23 @@
     width: 100%;
     margin-top: 10px;
 }
+    
+.like-btn {
+    display: block;
+    width: 45%; 
+    height: 40px;
+    text-align: center;
+    margin-top: 5px;
+    padding: 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+  .like-btn:hover {
+    background-color: #0056b3;
+  }
+  
