@@ -2,20 +2,20 @@ import { useState, useEffect } from "react";
 import { searchCars } from "../../services/carService";
 import CarCatalogItem from "../Catalog/car-catalog-item/CarCatalogItem";
 import "./Search.css";
+import { useSearchParams } from "react-router";
 
 export default function Search() {
   const [brand, setBrand] = useState("");
   const [price, setPrice] = useState("");
   const [results, setResults] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
-  const [searchStarted, setSearchStarted] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [hasNextPage, setHasNextPage] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
   const pageSize = 8;
 
   const handleSearch = async (page = 1) => {
     setIsSearching(true);
-    setSearchStarted(true);
     const skip = (page - 1) * pageSize;
 
     const data = await searchCars(brand, price, skip, pageSize);
@@ -25,15 +25,25 @@ export default function Search() {
     setResults(data);
     setCurrentPage(page);
     setIsSearching(false);
+
+    setSearchParams({
+      brand: brand || "",
+      price: price || "",
+      page: page.toString(),
+    })
   };
 
   const totalPages = hasNextPage ? currentPage + 1 : currentPage;
 
   useEffect(() => {
-    if (searchStarted) {
-      handleSearch(1);
-    }
-  }, [searchStarted]);
+    const brandFromUrl = searchParams.get("brand") || "";
+    const priceFromUrl = searchParams.get("price") || "";
+    const pageFromUrl = Number(searchParams.get("page")) || 1;
+
+    setBrand(brandFromUrl);
+    setPrice(priceFromUrl);
+    handleSearch(pageFromUrl);
+  }, []);
 
   return (
     <div className="search-container">
@@ -65,7 +75,7 @@ export default function Search() {
         {isSearching ? (
           <h3>Loading...</h3>
         ) : (
-          searchStarted && results.length === 0 ? (
+          results.length === 0 && !isSearching ? (
             <h3 className="no-matches">No results found.</h3>
           ) : (
             <>
@@ -77,7 +87,7 @@ export default function Search() {
                 ))}
               </div>
 
-              {searchStarted && results.length > 0 && (
+              {results.length > 0 && (
                 <div className="pagination">
                   <button
                     disabled={currentPage === 1}
