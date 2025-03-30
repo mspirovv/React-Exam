@@ -51,7 +51,7 @@ export default function Register() {
       navigate('/catalog');
     } catch (error) {
       setHasError(true);
-      toast.error("Registration failed! Please try again.", { position: "top-right" });
+      toast.error("Error! User is already registered.", { position: "top-right" });
     } finally {
       setIsSubmitting(false);
     }
@@ -101,7 +101,7 @@ export default function Register() {
               className="submit-btn"
               disabled={isSubmitting || hasError}
             >
-              {isSubmitting ? "Registering..." : "Register"}
+              Register
             </button>
 
             <div className="text-center">

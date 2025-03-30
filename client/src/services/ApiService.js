@@ -7,39 +7,40 @@ const baseURL = 'http://localhost:3030/users';
 export const useRegister = () => {
     const register = async (email, password) => {
         try {
-            const response = await fetch(`${baseURL}/register`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email, password })
-            });
+            const { response, result } = await request.post(`${baseURL}/register`, { email, password });
 
             if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.message || "Registration failed!");
+                throw new Error(result.message || "Email is already registered!");
             }
 
-            const data = await response.json();
-            return data;
+            return result; 
         } catch (error) {
             throw error;
         }
     };
 
-    return {
-        register
-    };
+    return { register };
 };
 
 
 export const useLogin = () => {
-    const login = async (email, password) =>
-        request.post(`${baseURL}/login`, { email, password }
-        );
+    const login = async (email, password) => {
+      try {
+        const { response, result } = await request.post(`${baseURL}/login`, { email, password });
+  
+        if (!response.ok) {
+          throw new Error(result.message || "Invalid email or password!");
+        }
 
-    return {
-        login,
-    }
-};
+        return result;
+      } catch (error) {
+        throw error;
+      }
+    };
+  
+    return { login };
+  };
+  
 
 export const useLogout = () => {
     const { accessToken, userLogoutHandler } = useContext(UserContext);

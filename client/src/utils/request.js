@@ -24,7 +24,7 @@ if (!responsContentType) {
 
 const result = await response.json();
 
-return result;
+return { result, response };
 
 };
 
