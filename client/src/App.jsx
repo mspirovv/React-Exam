@@ -1,4 +1,6 @@
 import { Route, Routes } from 'react-router'
+import { ToastContainer } from 'react-toastify';
+
 
 import UserProvider from './providers/UserProvider';
 
@@ -27,9 +29,8 @@ function App() {
        <UserProvider>
 
       <title>CarVilla</title>
-     
+      <ToastContainer/>
       <Header/>
-  
       <Routes>
         <Route index element={<Home/>} />
         <Route path='/catalog' element={<Catalog />} />
@@ -44,7 +45,7 @@ function App() {
         <Route path='/add-car' element={<CreateCar/>} />
         <Route path='/cars/:carId/edit' element={<CarEdit/>} />
         </Route>
-        
+
         <Route path='/cars/:carId/details' element={<CarDetails/>} />
       
         <Route path='/search' element={<Search/>} />
