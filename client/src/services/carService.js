@@ -9,25 +9,43 @@ export const useCars = () => {
 
     useEffect(() => {
         request.get(baseUrl)
-            .then(setCars)
+            .then(data => {
+                if (data.result && Array.isArray(data.result)) {
+                    setCars(data.result);
+                } else {
+                    throw new Error("Невалидни данни от API-то");
+                }
+            })
+            .catch(error => {
+                alert("Грешка при зареждане на колите. Моля, опитайте отново.");
+            });
     }, []);
 
     return { cars };
 };
 
 export const useCar = (carId) => {
-    const [car, setCar] = useState({});
+    const [car, setCar] = useState(null);
+    const [response, setResponse] = useState(null);
 
     useEffect(() => {
-        request.get(`${baseUrl}/${carId}`)
-            .then(setCar)
+        const fetchCar = async () => {
+            try {
+                const { result, response: res } = await request.get(`${baseUrl}/${carId}`);
+                setCar(result);  
+                setResponse(res);
+            } catch (error) {
+                alert("Error fetching car:", error);
+            }
+        };
+
+        if (carId) {
+            fetchCar();
+        }
     }, [carId]);
 
-
-    return {
-        car,
-    }
-}
+    return { car, response };
+};
 
 export const useCreateCar = () => {
     const { request } = useAuth();
