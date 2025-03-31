@@ -86,8 +86,8 @@ nav.navbar.bootsnav .navbar-toggle i{color: #4e4ffa;}
 .header-area{position: absolute;top:0;left:0;width: 100%;z-index: 99;}
 
 .nav-email {
-    margin-left: 15px;  /* Разстояние спрямо предишния елемент */
-    font-size: 1rem;    /* Можете да коригирате размера според нуждите */
-    color: #333;        /* Изберете цвят, който да е четим */
-    font-weight: 500;   /* Малко удебелен текст за по-добра видимост */
+    margin-left: 15px;  
+    font-size: 1rem;    
+    color: #333;      
+    font-weight: 500;  
   }

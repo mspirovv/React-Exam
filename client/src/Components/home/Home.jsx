@@ -70,7 +70,7 @@ export default function Home() {
                   </div>
                   <div className="featured-cars-txt-home">
                     <h2>
-                      <a href="#">{brand} <span>{model}</span></a>
+                    {brand} <span>{model}</span>
                     </h2>
                     <h3>Price: ${price}</h3>
                     <p>Likes: {carLikes[_id] || 0}</p>

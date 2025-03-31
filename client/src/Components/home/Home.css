@@ -5,7 +5,7 @@
     .details-btn {
         display: flex;
         justify-content: center; 
-        margin-top: -20px;
+        margin-top: 10px;
         margin-bottom: 20px;
     }
     
@@ -56,3 +56,17 @@
         text-align: center;
     }
     
+    .featured-cars-txt-home {
+        margin-top: 5px;
+        text-align: center;
+    }
+    
+    .featured-cars-txt-home h2 {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+
+.featured-cars-txt-home h2 a{font-size: 16px;margin-bottom: 15px;}
+.featured-cars-txt-home h2 a span{text-transform: uppercase;}
+.featured-cars-txt-home h3{margin-bottom: 10px;}
+.featured-cars-txt-home h3,.featured-cars-txt p{font-size: 13px;}

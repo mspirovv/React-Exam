@@ -48,7 +48,7 @@ export default function Header() {
                       <Link to="/">home</Link>
                     </li>
                     <li className="scroll">
-                      <Link to="/catalog">new cars</Link>
+                      <Link to="/catalog">catalog</Link>
                     </li>
                     <li className="scroll">
                       <Link to="/search">search</Link>
