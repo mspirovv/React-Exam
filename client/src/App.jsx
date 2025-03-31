@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router'
+import { Route, Routes, useLocation } from 'react-router'
 import { ToastContainer } from 'react-toastify';
 
 
@@ -6,30 +6,51 @@ import UserProvider from './providers/UserProvider';
 
 
 
-import AuthGuard from './components/guards/AuthGuard';
-import GuestGuard from './components/guards/GuestGuard';
-import Home from './components/home/Home';
-import Catalog from './components/Catalog/Catalog';
-import Register from './components/register/Register';
-import Login from './components/login/Login';
-import Logout from './components/logout/Logout';
-import CreateCar from './components/createCar/CreateCar';
-import CarEdit from './components/car-edit/CarEdit';
-import Search from './components/Search/Search';
-import NotFound from './components/notFound/NotFound';
-import CarDetails from './components/car-details/CarDetails';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
+import AuthGuard from './Components/guards/AuthGuard';
+import GuestGuard from './Components/guards/GuestGuard';
+import Home from './Components/home/Home';
+import Catalog from './Components/Catalog/Catalog';
+import Register from './Components/Register/Register';
+import Login from './Components/Login/Login';
+import Logout from './Components/logout/Logout';
+import CreateCar from './Components/CreateCar/CreateCar';
+import CarEdit from './Components/car-edit/CarEdit';
+import Search from './Components/Search/Search';
+import NotFound from './Components/NotFound/NotFound';
+import CarDetails from './Components/car-details/CarDetails';
+import Header from './Components/Header/Header';
+import Footer from './Components/Footer/Footer';
+import { useEffect } from 'react';
 
 function App() {
 
+  const location = useLocation();
+
+  const titles = {
+    "/": "Home - CarVilla",
+    "/catalog": "Catalog - CarVilla",
+    "/register": "Register - CarVilla",
+    "/login": "Login - CarVilla",
+    "/logout": "Logout - CarVilla",
+    "/add-car": "Add Car - CarVilla",
+    "/search": "Search - CarVilla",
+    "*": "404 Not Found - CarVilla",
+  };
+
+  useEffect(() => {
+    if (location.pathname.includes("/cars/") && location.pathname.endsWith("/edit")) {
+      document.title = "Edit Car - CarVilla";
+    } else {
+      document.title = titles[location.pathname] || "CarVilla";
+    }
+  }, [location.pathname]);
 
   return (
     <>
        
        <UserProvider>
 
-      <title>CarVilla</title>
+      {/* <title>CarVilla</title> */}
       <ToastContainer/>
       <Header/>
       <Routes>
