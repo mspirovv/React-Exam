@@ -88,6 +88,8 @@ export default function CarDetails() {
       const data = await res.json();
       setLikes(data);
       setHasLiked(data.some(like => like._ownerId === userId));
+
+      setCar({ ...car, likes: data });
     } catch (error) {
       console.error("Error updating like:", error);
     }

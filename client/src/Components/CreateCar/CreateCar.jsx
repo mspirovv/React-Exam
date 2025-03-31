@@ -49,7 +49,7 @@ export default function CreateCar() {
 
     const formData = new FormData(form);
     const carData = Object.fromEntries(formData);
-    carData.likes = 0;
+    carData.likes = [];
 
     createCar(carData);
     navigate('/catalog');

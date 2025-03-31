@@ -1,0 +1,58 @@
+.featured-cars-content {
+    margin-top: -90px;
+    }
+    
+    .details-btn {
+        display: flex;
+        justify-content: center; 
+        margin-top: -20px;
+        margin-bottom: 20px;
+    }
+    
+    .featured-model-info p,
+    .featured-cars-txt h3 {
+        text-align: center;
+    }
+    
+    
+    .featured-cars-img img {
+        width: 90%; 
+        height: 180px; 
+        object-fit: cover;
+        border-radius: 8px; 
+    }
+    
+    .single-featured-cars:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .top-cars-section-header p {
+        font-size: 22px;
+        color: #555;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+    
+    .top-cars-section-header p span {
+        color: #e74c3c;
+        font-weight: 700;
+    }
+    
+    .top-cars-section-header h2 {
+        font-size: 48px;
+        font-weight: bold;
+        color: #2c3e50;
+        text-transform: uppercase;
+        margin-top: 10px;
+        letter-spacing: 2px;
+        background: linear-gradient(90deg, #3498db, #9b59b6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        text-align: center;
+    }
+    
