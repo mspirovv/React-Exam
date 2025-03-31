@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { searchCars } from "../../services/carService";
-import CarCatalogItem from "../Catalog/car-catalog-item/CarCatalogItem";
+import CarCatalogItem from "../catalog/car-catalog-item/CarCatalogItem";
 import "./Search.css";
 import { useSearchParams } from "react-router";
 

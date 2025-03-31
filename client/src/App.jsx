@@ -5,14 +5,14 @@ import { ToastContainer } from 'react-toastify';
 import UserProvider from './providers/UserProvider';
 
 
-import Header from './Components/Header/Header';
-import Register from './Components/Register/Register';
-import Footer from './Components/Footer/Footer';
-import Search from './Components/Search/Search';
-import Login from './Components/Login/Login';
-import NotFound from './Components/NotFound/NotFound';
-import CreateCar from './Components/CreateCar/CreateCar';
-import Catalog from './Components/Catalog/Catalog';
+import Header from './Components/header/Header';
+import Register from './Components/register/Register';
+import Footer from './Components/footer/Footer';
+import Search from './Components/search/Search';
+import Login from './Components/login/Login';
+import NotFound from './Components/notFound/NotFound';
+import CreateCar from './Components/createCar/CreateCar';
+import Catalog from './Components/catalog/Catalog';
 import CarDetails from './Components/car-details/CarDetails';
 import CarEdit from './Components/car-edit/CarEdit';
 import Logout from './Components/logout/Logout';
