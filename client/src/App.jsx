@@ -49,8 +49,6 @@ function App() {
     <>
        
        <UserProvider>
-
-      {/* <title>CarVilla</title> */}
       <ToastContainer/>
       <Header/>
       <Routes>
