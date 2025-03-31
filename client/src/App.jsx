@@ -5,20 +5,21 @@ import { ToastContainer } from 'react-toastify';
 import UserProvider from './providers/UserProvider';
 
 
-import Header from './Components/header/Header';
-import Register from './Components/register/Register';
-import Footer from './Components/footer/Footer';
-import Search from './Components/search/Search';
-import Login from './Components/login/Login';
-import NotFound from './Components/notFound/NotFound';
-import CreateCar from './Components/createCar/CreateCar';
-import Catalog from './Components/catalog/Catalog';
-import CarDetails from './Components/car-details/CarDetails';
-import CarEdit from './Components/car-edit/CarEdit';
-import Logout from './Components/logout/Logout';
-import AuthGuard from './Components/guards/AuthGuard';
-import GuestGuard from './Components/guards/GuestGuard';
-import Home from './Components/home/Home';
+
+import AuthGuard from './components/guards/AuthGuard';
+import GuestGuard from './components/guards/GuestGuard';
+import Home from './components/home/Home';
+import Catalog from './components/Catalog/Catalog';
+import Register from './components/register/Register';
+import Login from './components/login/Login';
+import Logout from './components/logout/Logout';
+import CreateCar from './components/createCar/CreateCar';
+import CarEdit from './components/car-edit/CarEdit';
+import Search from './components/Search/Search';
+import NotFound from './components/notFound/NotFound';
+import CarDetails from './components/car-details/CarDetails';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 function App() {
 
