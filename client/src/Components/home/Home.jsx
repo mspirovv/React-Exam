@@ -35,7 +35,22 @@ export default function Home() {
   }, [cars]);
 
   if (!cars || cars.length === 0) {
-    return <p>Loading cars...</p>;
+   return (
+    <section id="top-cars-home" className="top-cars-home">
+        <div className="top-cars-container">
+          <div className="top-cars-section-header">
+            <p>
+              Checkout <span>the</span> most liked cars
+            </p>
+            <h2>Top 4</h2>
+          </div>
+          <div className="row">
+            <p className="noCars">No cars have been added yet.</p>
+          </div>
+        </div>
+      </section>
+    );
+ 
   }
 
   const sortedCars = [...cars].sort((a, b) => (carLikes[b._id] || 0) - (carLikes[a._id] || 0));

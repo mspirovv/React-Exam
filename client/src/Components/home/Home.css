@@ -71,3 +71,8 @@
 .featured-cars-txt-home h2 a span{text-transform: uppercase;}
 .featured-cars-txt-home h3{margin-bottom: 10px;}
 .featured-cars-txt-home h3,.featured-cars-txt p{font-size: 13px;}
+
+.noCars{
+    text-align: center;
+}
+

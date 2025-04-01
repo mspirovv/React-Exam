@@ -44,8 +44,7 @@ export const useLogin = () => {
 
 export const useLogout = () => {
     const { accessToken, userLogoutHandler } = useContext(UserContext);
-    console.log(`Nashiqt accessToken: ${accessToken}`)
-
+   
     useEffect(() => {
         if (!accessToken) {
             return;

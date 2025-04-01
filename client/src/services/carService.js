@@ -13,10 +13,12 @@ export const useCars = () => {
                 if (data.result && Array.isArray(data.result)) {
                     setCars(data.result);
                 } else {
-                    throw new Error("Невалидни данни от API-то");
+                    setCars([])
+
                 }
             })
             .catch(error => {
+
                 alert("Грешка при зареждане на колите. Моля, опитайте отново.");
             });
     }, []);
@@ -32,7 +34,7 @@ export const useCar = (carId) => {
         const fetchCar = async () => {
             try {
                 const { result, response: res } = await request.get(`${baseUrl}/${carId}`);
-                setCar(result);  
+                setCar(result);
                 setResponse(res);
             } catch (error) {
                 alert("Error fetching car:", error);
@@ -84,36 +86,35 @@ export const useDeleteCar = () => {
 }
 
 export const searchCars = async (brand, price, skip = 0, take = 100) => {
-    let query = {};
+    let whereClauses = [];
 
     if (brand) {
-        query.brand = brand;
+        whereClauses.push(`brand%20LIKE%20%22${encodeURIComponent(brand)}%22`);
     }
 
     if (price) {
-        query.price = { $lte: Number(price) };
+        whereClauses.push(`price%20%3C%3D%20${price}`);
     }
 
-    let whereClause = '';
-    if (brand) {
-        whereClause = `where=brand%20LIKE%20%22${encodeURIComponent(brand)}%22`;
-    }
+    let whereClause = whereClauses.length > 0 ? `where=${whereClauses.join('%20AND%20')}` : '';
+    let queryParams = `${whereClause}&offset=${skip}&pageSize=${take}`.replace(/^&/, ''); // Премахва водещия `&`
 
-    if (price) {
-        if (whereClause) {
-            whereClause += `%20AND%20price%20%3C%3D%20${price}`;
-        } else {
-            whereClause = `where=price%20%3C%3D%20${price}`;
-        }
-    }
-
-    whereClause += `&offset=${skip}&pageSize=${take}`;
-
-    const url = `http://localhost:3030/data/cars?${whereClause}`;
+    const url = `http://localhost:3030/data/cars?${queryParams}`;
 
     try {
         const response = await fetch(url);
+
+        if (!response.ok) {
+            console.error("Грешка при заявката:", response.status, response.statusText);
+            return []; // Ако отговорът не е успешен, връщаме празен масив
+        }
+
         const data = await response.json();
+
+        if (!Array.isArray(data)) {
+            console.error("Очакваше се масив, но получихме:", data);
+            return []; // Връщаме празен масив, ако API-то не върне списък
+        }
 
         return data;
     } catch (error) {
@@ -121,3 +122,4 @@ export const searchCars = async (brand, price, skip = 0, take = 100) => {
         return [];
     }
 };
+

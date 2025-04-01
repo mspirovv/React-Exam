@@ -12,7 +12,7 @@ export default function Catalog() {
 
   const { cars } = useCars();
   const totalCars = cars.length;
-  const totalPages = Math.ceil(totalCars / pageSize);
+  const totalPages = totalCars > 0 ? Math.ceil(totalCars / pageSize) : 1;
 
   const pageFromUrl = Number(searchParams.get("page")) || 1;
   const [currentPage, setCurrentPage] = useState(pageFromUrl);
