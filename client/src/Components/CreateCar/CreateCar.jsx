@@ -36,6 +36,19 @@ export default function CreateCar() {
     setErrors((prevErrors) => ({ ...prevErrors, ...fieldErrors }));
   };
 
+  
+  const handleInputChange = (e) => {
+    const input = e.target;
+    const fieldErrors = validateField(input);
+
+
+    setErrors((prevErrors) => {
+      const updatedErrors = { ...prevErrors };
+      delete updatedErrors[input.name];
+      return updatedErrors;
+    });
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -69,6 +82,7 @@ export default function CreateCar() {
               className="input-field"
               required
               onBlur={handleBlur}
+              onChange={handleInputChange}
             />
             {errors.brand && <p className="error-text">{errors.brand}</p>}
           </div>
@@ -82,6 +96,7 @@ export default function CreateCar() {
               className="input-field"
               required
               onBlur={handleBlur}
+              onChange={handleInputChange} 
             />
             {errors.model && <p className="error-text">{errors.model}</p>}
           </div>
@@ -95,6 +110,7 @@ export default function CreateCar() {
               className="input-field"
               required
               onBlur={handleBlur}
+              onChange={handleInputChange} 
             />
             {errors.transmission && <p className="error-text">{errors.transmission}</p>}
           </div>
@@ -108,6 +124,7 @@ export default function CreateCar() {
               className="input-field"
               required
               onBlur={handleBlur}
+              onChange={handleInputChange} 
             />
             {errors.year && <p className="error-text">{errors.year}</p>}
           </div>
@@ -121,6 +138,7 @@ export default function CreateCar() {
               className="input-field"
               required
               onBlur={handleBlur}
+              onChange={handleInputChange} 
             />
             {errors.imageUrl && <p className="error-text">{errors.imageUrl}</p>}
           </div>
@@ -133,6 +151,7 @@ export default function CreateCar() {
               className="input-field"
               required
               onBlur={handleBlur}
+              onChange={handleInputChange}
             />
             {errors.description && <p className="error-text">{errors.description}</p>}
           </div>
@@ -146,6 +165,7 @@ export default function CreateCar() {
               className="input-field"
               required
               onBlur={handleBlur}
+              onChange={handleInputChange} 
             />
             {errors.price && <p className="error-text">{errors.price}</p>}
           </div>
