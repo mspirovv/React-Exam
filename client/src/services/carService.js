@@ -18,10 +18,10 @@ export const useCars = () => {
                 }
             })
             .catch(error => {
-
+               
                 alert("Грешка при зареждане на колите. Моля, опитайте отново.");
             });
-    }, []);
+    }, [baseUrl]);
 
     return { cars };
 };

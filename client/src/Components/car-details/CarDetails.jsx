@@ -14,7 +14,7 @@ export default function CarDetails() {
   const [likes, setLikes] = useState([]);
   const [hasLiked, setHasLiked] = useState(false);
   const [loading, setLoading] = useState(true);
-
+  const [carDetails, setCarDetails] = useState(car)
 
   const deleteHandler = async () => {
     const hasConfirm = confirm(`Are you sure you want to delete ${car.brand} ${car.model} car?`);
@@ -89,7 +89,7 @@ export default function CarDetails() {
       setLikes(data);
       setHasLiked(data.some(like => like._ownerId === userId));
 
-      setCar({ ...car, likes: data });
+      setCarDetails(prevCarDetails => ({ ...prevCarDetails, likes: data }));
     } catch (error) {
       console.error("Error updating like:", error);
     }
