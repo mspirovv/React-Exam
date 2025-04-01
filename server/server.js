@@ -1516,6 +1516,60 @@
     	},
     	likes: {
     	},
+        "cars": [
+            {
+              "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+              "brand": "Ford",
+              "model": "Mondeo",
+              "transmission": "automatic",
+              "year": "2008",
+              "imageUrl": "https://media.drive.com.au/obj/tx_q:50,rs:auto:1920:1080:1/caradvice/private/18e6ba7d1203fed659cec7cbec4b6131",
+              "description": "Family Wagon",
+              "price": "9000",
+              "likes": [],
+              "_createdOn": 1743531208345,
+              "_id": "08e0e1e4-356b-4e80-9446-1149ae6d7b32"
+            },
+            {
+              "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+              "brand": "BMW",
+              "model": "E60",
+              "transmission": "automatic",
+              "year": "2009",
+              "imageUrl": "https://images.collectingcars.com/011570/10-ww-4.jpg?w=1263&fit=fillmax&crop=edges&auto=format,compress&cs=srgb&q=85",
+              "description": "top bmw",
+              "price": "18000",
+              "likes": [],
+              "_createdOn": 1743531272823,
+              "_id": "a3ac53a9-5bf1-4852-a029-f07284054b69"
+            },
+            {
+              "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+              "brand": "BMW",
+              "model": "E90",
+              "transmission": "manual",
+              "year": "2005",
+              "imageUrl": "https://cdn.bmwblog.com/wp-content/uploads/2015/03/Jet-Black-BMW-E90-335i-Looks-Clean-With-Aftermarket-Wheels-3.jpg",
+              "description": "junior's car",
+              "price": "7900",
+              "likes": [],
+              "_createdOn": 1743531338239,
+              "_id": "0f5ca637-ce7f-4498-9719-75cfc72c06ce"
+            },
+            {
+              "_ownerId": "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
+              "brand": "Ford",
+              "model": "Focus",
+              "transmission": "manual",
+              "year": "1999",
+              "imageUrl": "https://caralyze.bg/add_images/auto/27/1352728366398.jpg",
+              "description": "My first car",
+              "price": "2000",
+              "likes": [],
+              "_createdOn": 1743531372855,
+              "_id": "d678b516-88f2-4f4f-8822-10cc1c97d29b"
+            }
+          ],
     	ideas: {
     		"833e0e57-71dc-42c0-b387-0ce0caf5225e": {
     			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
