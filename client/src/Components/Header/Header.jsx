@@ -5,8 +5,6 @@ import './Header.css';
 export default function Header() {
   const { email, isAuthenticated } = useAuth();
 
-  console.log(`Is Authenticated? ${isAuthenticated}`)
-
   return (
     <>
       <div className="welcome-hero">

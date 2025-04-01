@@ -44,7 +44,7 @@ export const useLogin = () => {
 
 export const useLogout = () => {
     const { accessToken, userLogoutHandler } = useContext(UserContext);
-   
+
     useEffect(() => {
         if (!accessToken) {
             return;
@@ -55,10 +55,7 @@ export const useLogout = () => {
                 'X-Authorization': accessToken,
             }
         };
-
-        console.log('Logout Headers:', options.headers);
-
-
+        
         request.get(`${baseURL}/logout`, null, options)
             .then(userLogoutHandler);
 
